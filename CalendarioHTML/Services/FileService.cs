@@ -18,26 +18,44 @@ namespace CalendarioHTML.Services
 
         public string GetProjectRoot()
         {
-            DirectoryInfo dir = new DirectoryInfo(Directory.GetCurrentDirectory());
-
-            while (dir != null)
+            try
             {
-                if (dir.GetFiles("*.csproj").Any())
-                    return dir.FullName;
+                string current = AppContext.BaseDirectory;
+                DirectoryInfo? dir = new(current);
 
-                dir = dir.Parent;
+                while (dir != null)
+                {
+                    if (Directory.Exists(Path.Combine(dir.FullName, "Assets")))
+                    {
+                        return dir.FullName;
+                    }
+
+                    dir = dir.Parent;
+                }
+
+                //Provoca error en publish
+                //DirectoryInfo dir = new DirectoryInfo(Directory.GetCurrentDirectory());
+                //while (dir != null)
+                //{
+                //    if (dir.GetFiles("*.csproj").Any())
+                //        return dir.FullName;
+
+                //    dir = dir.Parent;
+                //}
+                return current;
+            }
+            catch {
+                throw new DirectoryNotFoundException();
             }
 
-            throw new DirectoryNotFoundException();
         }
 
         public bool SaveCalendarFile(StringBuilder htmlCalendar)
         {
             try
             {
-                string ouputFolder = "Output";
                 var rootPath = GetProjectRoot();
-                var outputPath = Path.Combine(rootPath, ouputFolder);
+                var outputPath = Path.Combine(rootPath, "Output");
                 var assetsFolder = Path.Combine(rootPath, "Assets");
 
                 if (!Directory.Exists(outputPath))

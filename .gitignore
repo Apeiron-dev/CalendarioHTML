@@ -1,12 +1,8 @@
 # Visual Studio
 .vs/
 
-# Ignorar todo el contenido de Output
-CalendarioHTML/Output/*
+# Ignorar todo el contenido de PublishProfiles
 CalendarioHTML/Properties/PublishProfiles
-
-# Excepto el archivo marcador
-!CalendarioHTML/Output/.gitkeep
 
 # Compilación
 bin/
