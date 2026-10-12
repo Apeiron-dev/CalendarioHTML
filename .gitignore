@@ -3,6 +3,7 @@
 
 # Ignorar todo el contenido de Output
 CalendarioHTML/Output/*
+CalendarioHTML/Properties/PublishProfiles
 
 # Excepto el archivo marcador
 !CalendarioHTML/Output/.gitkeep
