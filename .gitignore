@@ -1,0 +1,44 @@
+# Visual Studio
+.vs/
+
+# Ignorar todo el contenido de Output
+CalendarioHTML/Output/*
+
+# Excepto el archivo marcador
+!CalendarioHTML/Output/.gitkeep
+
+# Compilación
+bin/
+obj/
+
+# Archivos de usuario
+*.user
+*.suo
+*.userosscache
+*.rsuser
+
+# Publicación
+publish/
+
+# Logs
+*.log
+
+# Rider
+.idea/
+
+# ReSharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+
+# Archivos temporales
+*.tmp
+*.cache
+
+# Resultados de pruebas
+TestResults/
+
+# Paquetes
+packages/
+
+# Configuración local
+appsettings.Development.json
